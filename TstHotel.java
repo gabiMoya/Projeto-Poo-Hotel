@@ -9,17 +9,19 @@ public class TstHotel {
 		Reserva r1 = new Reserva();
 		Quarto q1 = new Quarto();
 
-		// c1.setNome(l.entDados("Informe seu nome.:"));
-		// c1.setCpf(Integer.parseInt(l.entDados("\nInforme seu CPF..:")));
-		// c1.setTelefone(Integer.parseInt(l.entDados("\nInforme seu Telefone com DDD
-		// sem espacos (ex 43991059635)..:")));
-		// c1.setEmail(l.entDados("\nInforme seu e-mail.:"));
+		// Dica: Utilize um construtor que possui os campos da classe como parâmetros,
+		// ao invés de ir setando os valores um por um
+		// Cliente c1 = new Cliente (nome, cpf, telefone, email);
+		c1.setNome(l.entDados("Informe seu nome.:"));
+		c1.setCpf(Integer.parseInt(l.entDados("\nInforme seu CPF..:")));
+		c1.setTelefone(Integer.parseInt(l.entDados("\nInforme seu Telefone com DDD sem espacos (ex 43991059635)..:")));
+		c1.setEmail(l.entDados("\nInforme seu e-mail.:"));
 
-		// System.out.println("Confirme seus dados inseridos");
-		// System.out.println("\n Nome..." + c1.getNome());
-		// System.out.println("\n CPF..." + c1.getCpf());
-		// System.out.println("\n Telefone..." + c1.getTelefone());
-		// System.out.println("\n e-mail..." + c1.getEmail());
+		System.out.println("Confirme seus dados inseridos");
+		System.out.println("\n Nome..." + c1.getNome());
+		System.out.println("\n CPF..." + c1.getCpf());
+		System.out.println("\n Telefone..." + c1.getTelefone());
+		System.out.println("\n e-mail..." + c1.getEmail());
 
 		String dataInicioStr = l.entDados("\nInforme a data de check in (formato: dd/MM/yyyy)..:");
 		String dataFimStr = l.entDados("\nInforme a data de check out (formato: dd/MM/yyyy)..:");
@@ -29,7 +31,6 @@ public class TstHotel {
 
 		r1.setDataInicio(dataInicio);
 		r1.setDataFim(dataFim);
-		// Não sei transformar string inserida para formato de data
 
 		System.out.println("Confirme as datas inseridas");
 		System.out.println("Data de chegada..." + LocalDateParaString(r1.getDataInicio()));
