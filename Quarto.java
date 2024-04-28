@@ -1,44 +1,38 @@
-import java.util.*;
-
-
-
-public  class Quarto {
+public class Quarto {
 
 	private int num;
 	private String tipo;
 	private boolean disponivel;
 
-public Quarto(){
+	public Quarto() {
 		num = 0;
 		tipo = "";
-		disponível = "true";
+		disponivel = true;
 	}
 
-	public int getNum(){
+	public int getNum() {
 		return num;
 	}
 
-	public String getTipo(){
+	public String getTipo() {
 		return tipo;
 	}
 
-	public boolean getDisponivel(){
+	public boolean getDisponivel() {
 		return disponivel;
 	}
 
-	public void setNum(int num){
+	public void setNum(int num) {
 		this.num = num;
 	}
-	
-	public void setTipo(String tipo){
+
+	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
 
-
-	
-	public void setDisponivel(boolean disponivel){
-		this.disponivel = disponivel;;
+	public void setDisponivel(boolean disponivel) {
+		this.disponivel = disponivel;
+		;
 	}
-
 
 }

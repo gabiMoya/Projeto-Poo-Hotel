@@ -1,46 +1,47 @@
-public class Cliente{
+public class Cliente {
 
 	private String nome;
 	private int cpf;
 	private int telefone;
 	private String email;
 
-
-public Cliente(){
-		nome = "tst nome";		
+	public Cliente() {
+		nome = "tst nome";
 		cpf = 12;
 		telefone = 213;
 		email = "teset email";
 	}
 
-
-	public String getNome(){
+	public String getNome() {
 		return nome;
-}
+	}
 
-	public int getCpf(){
+	public int getCpf() {
 		return cpf;
-}
-	public int getTelefone(){
+	}
+
+	public int getTelefone() {
 		return telefone;
-}	
-	public String getEmail(){
+	}
+
+	public String getEmail() {
 		return email;
-}	
+	}
 
-	 public void setNome(String nome){
+	public void setNome(String nome) {
 		this.nome = nome;
-}
+	}
 
-	 public void setCpf(int cpf){
+	public void setCpf(int cpf) {
 		this.cpf = cpf;
-}
-	 public void setTelefone(int telefone){
-		this.telefone = telefone;
-}
-	 public void setEmail(String email){
-		this.email = email;
-}
+	}
 
+	public void setTelefone(int telefone) {
+		this.telefone = telefone;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 }
