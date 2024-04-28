@@ -6,7 +6,6 @@ public class Reserva {
 	private Quarto quarto;
 	private LocalDate dataInicio;
 	private LocalDate dataFim;
-	private double valor;
 
 	public Reserva(Cliente cliente, Quarto quarto, LocalDate dataInicio, LocalDate dataFim) {
 		this.cliente = cliente;
@@ -35,10 +34,6 @@ public class Reserva {
 		return dataFim;
 	}
 
-	public Double getValor() {
-		return valor;
-	}
-
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
@@ -51,12 +46,8 @@ public class Reserva {
 		this.dataInicio = dataInicio;
 	}
 
-	public void setDataFim(LocalDate dataFim) {
-		this.dataFim = dataFim;
-	}
-
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
+	// public void CalcPreco(){
+	// System.out.println("Mostra o Valor da estadia")
+	// }
 
 }
