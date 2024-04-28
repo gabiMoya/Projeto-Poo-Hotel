@@ -46,6 +46,10 @@ public class Reserva {
 		this.dataInicio = dataInicio;
 	}
 
+	public void setDataFim(LocalDate dataFim) {
+		this.dataFim = dataFim;
+	}
+
 	// public void CalcPreco(){
 	// System.out.println("Mostra o Valor da estadia")
 	// }
