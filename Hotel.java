@@ -4,30 +4,23 @@ import java.util.List;
 public class Hotel {
 
 	private String nome;
-	private int qualificacao;
 	private List<Quarto> quartos;
 
 	public Hotel() {
-		nome = "test";
-		qualificacao = 1;
+		nome = "Grad Plaza Hotel";
 		quartos = new ArrayList<>();
+		for (int i = 1; i < 11; i++) {
+			Quarto quarto = new Quarto(i, true);
+			quartos.add(quarto);
+		}
 	}
 
 	public String getNome() {
 		return nome;
 	}
 
-	public int getQualificacao() {
-		return qualificacao;
-	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public void setQualificacao(int qualificacao) {
-
-		this.qualificacao = qualificacao;
 	}
 
 }

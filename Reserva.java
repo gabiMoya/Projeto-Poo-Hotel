@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Reserva {
 
@@ -12,10 +13,6 @@ public class Reserva {
 		this.quarto = quarto;
 		this.dataInicio = dataInicio;
 		this.dataFim = dataFim;
-	}
-
-	public Reserva() {
-
 	}
 
 	public Cliente getCliente() {
@@ -49,19 +46,27 @@ public class Reserva {
 	public void setDataFim(LocalDate dataFim) {
 		this.dataFim = dataFim;
 	}
-public class CalcPreco {
 
+	public int calcPreco() {
 
-	
-        LocalDate DataInicio = LocalDate.of();
-        LocalDate DataFim = LocalDate.of();
+		Period periodo = Period.between(this.dataInicio, this.dataFim);
 
-        Period periodo = Period.between(DataInicio, DataFim);
+		return periodo.getDays() * 50;
 
-	Return periodo *50
+	}
 
+	public void dataInvalidaException(LocalDate dataInicio, LocalDate dataFim)
+			throws PeriodoInvalidoException, DataInvalidaException {
+		Period periodo = Period.between(dataInicio, dataFim);
+		if (periodo.getDays() == 0) {
+			throw new PeriodoInvalidoException();
+		}
+		LocalDate dataAtual = LocalDate.now();
 
-}
+		if (dataInicio.isBefore(dataAtual) && dataFim.isBefore(dataAtual)) {
+			throw new DataInvalidaException();
 
+		}
+	}
 
 }
