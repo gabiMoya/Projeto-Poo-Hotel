@@ -2,10 +2,10 @@ public class Cliente {
 
 	private String nome;
 	private String cpf;
-	private int telefone;
+	private String telefone;
 	private String email;
 
-	public Cliente(String nome, String cpf, int telefone, String email) throws CpfPeqException {
+	public Cliente(String nome, String cpf, String telefone, String email) throws CpfInvalidoException {
 		this.nome = nome;
 		this.validaCpf(cpf);
 		this.cpf = cpf;
@@ -21,7 +21,7 @@ public class Cliente {
 		return cpf;
 	}
 
-	public int getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
 
@@ -33,12 +33,12 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	public void setCpf(String cpf) throws CpfPeqException {
+	public void setCpf(String cpf) throws CpfInvalidoException {
 		this.validaCpf(cpf);
 		this.cpf = cpf;
 	}
 
-	public void setTelefone(int telefone) {
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
 
@@ -46,9 +46,9 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public void validaCpf(String cpf) throws CpfPeqException {
-		if (cpf.length() > 12 || cpf.length() < 0) {
-			throw new CpfPeqException();
+	public void validaCpf(String cpf) throws CpfInvalidoException {
+		if (cpf.length() != 11) {
+			throw new CpfInvalidoException();
 		}
 	}
 

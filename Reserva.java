@@ -1,26 +1,35 @@
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.List;
 
 public class Reserva {
-
+	private int numeroReserva;
 	private Cliente cliente;
-	private Quarto quarto;
+	private List<Quarto> quartos;
 	private LocalDate dataInicio;
 	private LocalDate dataFim;
 
-	public Reserva(Cliente cliente, Quarto quarto, LocalDate dataInicio, LocalDate dataFim) {
+	public Reserva(int numeroReserva, Cliente cliente, List<Quarto> quartos, LocalDate dataInicio, LocalDate dataFim)
+			throws PeriodoInvalidoException, DataInvalidaException {
+
+		this.validarDatas(dataInicio, dataFim);
+		this.numeroReserva = numeroReserva;
 		this.cliente = cliente;
-		this.quarto = quarto;
+		this.quartos = quartos;
 		this.dataInicio = dataInicio;
 		this.dataFim = dataFim;
+	}
+
+	public int getNumeroReserva() {
+		return numeroReserva;
 	}
 
 	public Cliente getCliente() {
 		return cliente;
 	}
 
-	public Quarto getQuarto() {
-		return quarto;
+	public List<Quarto> getQuartos() {
+		return quartos;
 	}
 
 	public LocalDate getDataInicio() {
@@ -35,8 +44,12 @@ public class Reserva {
 		this.cliente = cliente;
 	}
 
-	public void setQuarto(Quarto quarto) {
-		this.quarto = quarto;
+	public void setNumeroReserva(int numeroReserva) {
+		this.numeroReserva = numeroReserva;
+	}
+
+	public void setQuartos(List<Quarto> quartos) {
+		this.quartos = quartos;
 	}
 
 	public void setDataInicio(LocalDate dataInicio) {
@@ -51,21 +64,22 @@ public class Reserva {
 
 		Period periodo = Period.between(this.dataInicio, this.dataFim);
 
-		return periodo.getDays() * 50;
+		int valorResult = (periodo.getDays() * 50) * this.quartos.size();
 
+		return valorResult;
 	}
 
-	public void dataInvalidaException(LocalDate dataInicio, LocalDate dataFim)
+	public void validarDatas(LocalDate dataInicio, LocalDate dataFim)
 			throws PeriodoInvalidoException, DataInvalidaException {
 		Period periodo = Period.between(dataInicio, dataFim);
+
 		if (periodo.getDays() == 0) {
 			throw new PeriodoInvalidoException();
 		}
 		LocalDate dataAtual = LocalDate.now();
 
-		if (dataInicio.isBefore(dataAtual) && dataFim.isBefore(dataAtual)) {
+		if (dataInicio.isBefore(dataAtual) || dataFim.isBefore(dataAtual)) {
 			throw new DataInvalidaException();
-
 		}
 	}
 
